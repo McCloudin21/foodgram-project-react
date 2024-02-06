@@ -121,7 +121,7 @@ class RecipeIngredient(models.Model):
                 name='unique ingredient')]
 
 
-class Favorite_ShoppingModel(models.Model):
+class FavoriteShoppingModel(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
@@ -135,7 +135,7 @@ class Favorite_ShoppingModel(models.Model):
         abstract = True
 
 
-class FavoriteRecipe(Favorite_ShoppingModel):
+class FavoriteRecipe(FavoriteShoppingModel):
 
     class Meta:
         verbose_name = 'Избранный рецепт'
@@ -152,7 +152,7 @@ class FavoriteRecipe(Favorite_ShoppingModel):
             return FavoriteRecipe.objects.create(user=instance)
 
 
-class ShoppingCart(Favorite_ShoppingModel):
+class ShoppingCart(FavoriteShoppingModel):
 
     class Meta:
         verbose_name = 'Покупка'

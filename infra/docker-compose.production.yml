@@ -24,8 +24,9 @@ services:
   
   frontend:
     image: mccloudin/food_front:latest
+    command: cp -r /app/build/. /frontend_static/
     volumes:
-      - ../frontend/:/app/result_build/
+      - ../frontend/:/app/frontend_static/
 
   nginx:
     image: nginx:latest

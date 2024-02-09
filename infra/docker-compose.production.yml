@@ -15,7 +15,7 @@ services:
     restart: always
   
   backend:
-    image: mccloudin/food_back:latest
+    image: mccloudin/food_backend:latest
     volumes:
       - static_value:/app/static/
       - media_value:/app/media/
@@ -23,7 +23,7 @@ services:
     env_file: .env
   
   frontend:
-    image: mccloudin/food_front:latest
+    image: mccloudin/food_frontend:latest
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - ../frontend/:/frontend_static/
